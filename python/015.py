@@ -114,14 +114,81 @@ numeros = list()
 sorteia(numeros)
 somapar(numeros)
 
+"FUNCAO FATORIAL"
+def fatorial(num = int(input('Digite um numero para calcular o fatorial: ')), show = False):
+    f = 1
+    for c in range (num , 0 , -1):
+        if show:
+            print(c , end = '')
+            if c > 1:
+                print(' x ' , end = '')
+            else:
+                print(' = ' , end = '')
+        f *= c
+    return f
+print(fatorial(5 , show = True))
+
+"FICHA DEE JOGADOR"
+
+def ficha(nome = str(input('Nome do jogador: ')), gols = str(input('Número de gols: '))):
+    if nome.strip() == '':
+        nome = '<desconhecido>'
+    if gols.strip() == '' or not gols.isnumeric():
+        gols = 0
+    print(f'O jogador {nome} fez {gols} gols no campeonato')
+ficha()
+
+
+"LEIA NUMEROS "
+from calendar import c
+
+
+def leiaInt(msg):
+    try:
+        while True:
+            n = input(msg)
+            if n.isnumeric():
+                return int(n)
+            else:
+                print('ERRO! Digite um número inteiro válido.')
+                continue
+    except (ValueError, TypeError):
+        print('ERRO! Digite um número inteiro válido.  1')
+num = leiaInt('Digite um número: ')
+print(f'Você acabou de digitar o número {num}')
+
+"ANALISANDO   e GERANDO DICIONARIOS"
+def notas(*n , sit = False):
+    """
+    -> Função para analisar notas e situações de vários alunos.
+    :param n: uma ou mais notas dos alunos (aceita várias)
+    :param sit: valor opcional, indicando se deve ou não adicionar a situação
+    :return: dicionário com várias informações sobre a situação da turma
+    """
+    r = dict ()
+    r ['total'] = len(n)
+    r ['maior'] = max(n)
+    r ['menor'] = min(n)
+    r ['media'] = sum(n) / len(n)
+    if sit:
+        if r ['media'] >= 7:
+            r ['situação'] = 'BOA'
+        elif r ['media'] >= 5:
+            r ['situação'] = 'RAZOÁVEL'
+        else:
+            r ['situação'] = 'RUIM'
+    return r
+resp = notas(5.5, 2.5, 9.5, sit = True)
+print(resp)
 '''
 
-
-
-
-
-
-
-
-
-
+"INTERARIVE HELPING IN PYTHON "
+def ajuda(com):
+   while True:
+        if com.upper() == 'FIM':
+            print('Até logo!')
+            break
+        else:
+            help(com)
+        com = str(input('Digite a função ou biblioteca que deseja ajuda: '))
+ajuda(str(input('Digite a função ou biblioteca que deseja ajuda: ')))
