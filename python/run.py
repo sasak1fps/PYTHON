@@ -15,7 +15,7 @@ def falar(texto):
     engine.runAndWait()
 
 # 2. Configurar o Cliente Novo (Substitua pela sua chave)
-client = genai.Client(api_key="AIzaSyDSg1j28jBs9gxB703r-pUuymfcBIvgh1Y",
+client = genai.Client(api_key="AIzaSyDSg1jfcBIvgh1Y",
                       http_options={'api_version': 'v1'}
 )
 
